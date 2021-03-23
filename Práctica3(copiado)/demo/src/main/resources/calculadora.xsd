@@ -33,19 +33,4 @@
             </sequence>
         </complexType>
     </element>
-    <element name="DiviRequest">
-        <complexType>
-            <sequence>
-                <element name="a" type="string"></element>
-                <element name="b" type="string"></element>
-            </sequence>
-        </complexType>
-    </element>
-    <element name="DiviResponse">
-        <complexType>
-            <sequence>
-                <element name="resultado" type="string"></element>
-            </sequence>
-        </complexType>
-    </element>
 </schema>
