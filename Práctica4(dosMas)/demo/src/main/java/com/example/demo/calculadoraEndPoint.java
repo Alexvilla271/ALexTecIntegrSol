@@ -6,6 +6,8 @@ import org.example.calculadora.RestartRequest;
 import org.example.calculadora.RestartResponse;
 import org.example.calculadora.DiviRequest;
 import org.example.calculadora.DiviResponse;
+import org.example.calculadora.MultRequest;
+import org.example.calculadora.MultResponse;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -29,7 +31,7 @@ public class calculadoraEndPoint {
     }
 
     @ResponsePayload
-    public RestartResponse dameSuma(@RequestPayload RestarRequest peticion){
+    public RestartResponse dameResta(@RequestPayload RestarRequest peticion){
         RestarRequest respuesta= new RestartResponse();
         respuesta.setResultado(String.valueOf(
             Integer.parseInt( peticion.getA() ) +
@@ -40,8 +42,19 @@ public class calculadoraEndPoint {
     }
 
     @ResponsePayload
-    public DiviResponse dameSuma(@RequestPayload DiviRequest peticion){
+    public DiviResponse dameDivi(@RequestPayload DiviRequest peticion){
         DiviRequest respuesta= new DiviResponse();
+        respuesta.setResultado(String.valueOf(
+            Integer.parseInt( peticion.getA() ) +
+            Integer.parseInt( peticion.getB() )
+        ));
+
+        return respuesta;
+    }
+
+    @ResponsePayload
+    public MultResponse dameMult(@RequestPayload MultRequest peticion){
+        MultRequest respuesta= new MultResponse();
         respuesta.setResultado(String.valueOf(
             Integer.parseInt( peticion.getA() ) +
             Integer.parseInt( peticion.getB() )
