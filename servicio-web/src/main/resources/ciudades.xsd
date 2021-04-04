@@ -1,0 +1,36 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/gs-producing-web-service"
+           targetNamespace="http://spring.io/guides/gs-producing-web-service" elementFormDefault="qualified">
+
+    <xs:element name="CiudadRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nombre" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="CiudadResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ciudad" type="tns:ciudad"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="ciudad">                                     
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string"/>                   
+            <xs:element name="inventario" type="xs:int"/>                 
+            <xs:element name="sucursal" type="xs:string"/>               
+            <xs:element name="harina" type="tns:harina"/>              
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="harina">                
+        <xs:restriction base="xs:string">       
+            <xs:enumeration value="Maiz"/>               
+            <xs:enumeration value="Trigo"/>               
+            <xs:enumeration value="Avena"/>               
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
