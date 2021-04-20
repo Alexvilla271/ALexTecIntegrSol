@@ -1,0 +1,91 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.tell.me/usuarios"
+	targetNamespace="http://www.tell.me/usuarios"
+	elementFormDefault="qualified">
+
+	<xs:element name="getUsuarioByIdRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="usuarioId" type="xs:long" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="getUsuarioByIdResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="usuarioType" type="tns:usuarioType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="usuarioType">
+		<xs:sequence>
+			<xs:element name="usuarioId" type="xs:long" />
+			<xs:element name="title" type="xs:string" />
+			<xs:element name="category" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+ <xs:element name="getAllUsuariosRequest">
+        <xs:complexType/>
+    </xs:element>    
+    <xs:element name="getAllUsuariosResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="usuarioType" type="tns:usuarioType" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>   
+    <xs:complexType name="serviceStatus">
+        <xs:sequence>
+            <xs:element name="statusCode" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>     
+    <xs:element name="addUsuarioRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nombre" type="xs:string"/>
+                <xs:element name="tipo" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="addUsuarioResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:serviceStatus"/>            
+                <xs:element name="usuarioType" type="tns:usuarioType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="updateUsuarioRequest">
+        <xs:complexType>
+            <xs:sequence>
+               <xs:element name="nombre" type="xs:string"/>
+                <xs:element name="tipo" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="updateUsuarioResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="deleteUsuarioRequest">
+        <xs:complexType>
+            <xs:sequence>
+               <xs:element name="usuarioId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="deleteUsuarioResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
