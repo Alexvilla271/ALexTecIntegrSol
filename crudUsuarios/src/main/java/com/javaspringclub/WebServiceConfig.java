@@ -29,12 +29,12 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     // localhost:8080/ws/usuarios.wsdl
     @Bean(name = "usuarios")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema schema){
-        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-        wsdl11Definition.setPortTypeName("UsuariosPort");
-        wsdl11Definition.setLocationUri("/ws");
-        wsdl11Definition.setTargetNamespace(UsuarioEndpoint.NAMESPACE_URI);
-        wsdl11Definition.setSchema(schema);
-        return wsdl11Definition;
+        DefaultWsdl11Definition wsdl = new DefaultWsdl11Definition();
+        wsdl.setPortTypeName("UsuariosPort");
+        wsdl.setLocationUri("/ws");
+        wsdl.setTargetNamespace(UsuarioEndpoint.NAMESPACE_URI);
+        wsdl.setSchema(schema);
+        return wsdl;
     }
 
     @Bean

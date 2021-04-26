@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,7 +19,7 @@ public class UsuarioEntityServiceImpl implements UsuarioEntityService {
 	}
 
 	@Override
-	public UsuarioEntity getEntityByTitle(String title) {
+	public UsuarioEntity getEntityByNombre(String nombre) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -55,14 +55,14 @@ public class UsuarioEndpoint {
 	@ResponsePayload
 	public GetAllUsuariosResponse getAllUsuarios(@RequestPayload GetAllUsuariosRequest request) {
 		GetAllUsuariosResponse response = new GetAllUsuariosResponse();
-		List<UsuarioType> usuaioTypeList = new ArrayList<UsuarioType>();
-		List<UsuarioEntity> usuaioEntityList = service.getAllEntities();
-		for (UsuarioEntity entity : usuaioEntityList) {
-			UsuarioType usuaioType = new UsuarioType();
-			BeanUtils.copyProperties(entity, usuaioType);
-			usuaioTypeList.add(usuaioType);
+		List<UsuarioType> usuarioTypeList = new ArrayList<UsuarioType>();
+		List<UsuarioEntity> usuarioEntityList = service.getAllEntities();
+		for (UsuarioEntity entity : usuarioEntityList) {
+			UsuarioType usuarioType = new UsuarioType();
+			BeanUtils.copyProperties(entity, usuarioType);
+			usuarioTypeList.add(usuarioType);
 		}
-		response.getUsuarioType().addAll(usuaioTypeList);
+		response.getUsuarioType().addAll(usuarioTypeList);
 
 		return response;
 
@@ -96,11 +96,11 @@ public class UsuarioEndpoint {
 
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "updateUsuarioRequest")
 	@ResponsePayload
-	public UpdateUsuarioResponse updateMovie(@RequestPayload UpdateUsuarioRequest request) {
+	public UpdateUsuarioResponse updateUsuario(@RequestPayload UpdateUsuarioRequest request) {
 		UpdateUsuarioResponse response = new UpdateUsuarioResponse();
 		ServiceStatus serviceStatus = new ServiceStatus();
 		// 1. Find if movie available
-		UsuarioEntity usuarioFromDB = service.getEntityByTitle(request.getNombre());
+		UsuarioEntity usuarioFromDB = service.getEntityByNombre(request.getNombre());
 		
 		if(usuarioFromDB == null) {
 			serviceStatus.setStatusCode("No encontrada");
@@ -131,7 +131,7 @@ public class UsuarioEndpoint {
 
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteUsuarioRequest")
 	@ResponsePayload
-	public DeleteUsuarioResponse deleteMovie(@RequestPayload DeleteUsuarioRequest request) {
+	public DeleteUsuarioResponse deleteUsuario(@RequestPayload DeleteUsuarioRequest request) {
 		DeleteUsuarioResponse response = new DeleteUsuarioResponse();
 		ServiceStatus serviceStatus = new ServiceStatus();
 
