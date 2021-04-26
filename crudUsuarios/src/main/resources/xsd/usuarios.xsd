@@ -21,8 +21,8 @@
 	<xs:complexType name="usuarioType">
 		<xs:sequence>
 			<xs:element name="usuarioId" type="xs:long" />
-			<xs:element name="title" type="xs:string" />
-			<xs:element name="category" type="xs:string" />
+			<xs:element name="nombre" type="xs:string" />
+			<xs:element name="tipo" type="xs:string" />
 		</xs:sequence>
 	</xs:complexType>
 
