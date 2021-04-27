@@ -3,6 +3,7 @@ package com.example.usuarios;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
@@ -15,6 +16,7 @@ import me.tell.usuarios.EliminarUsuarioResponse;
 import me.tell.usuarios.ModificarUsuarioRequest;
 import me.tell.usuarios.ModificarUsuarioResponse;
 
+@Endpoint
 public class UsuariosEndPoint {
     @Autowired
     private Iusuarios iusuarios;
