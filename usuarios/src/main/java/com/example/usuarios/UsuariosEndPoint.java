@@ -10,6 +10,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 import me.tell.usuarios.AnadirUsuarioRequest;
 import me.tell.usuarios.AnadirUsuarioResponse;
+import me.tell.usuarios.BusquedaUsuarioRequest;
 import me.tell.usuarios.BusquedaUsuarioResponse;
 import me.tell.usuarios.EliminarUsuarioRequest;
 import me.tell.usuarios.EliminarUsuarioResponse;
@@ -37,7 +38,7 @@ public class UsuariosEndPoint {
 
     @PayloadRoot(namespace="http://tell.me/usuarios",localPart="BusquedaUsuarioRequest" )
     @ResponsePayload
-    public BusquedaUsuarioResponse dameUsuarios(){
+    public BusquedaUsuarioResponse dameUsuarios( @RequestPayload BusquedaUsuarioRequest peticion){
         BusquedaUsuarioResponse respuesta = new BusquedaUsuarioResponse();
         Iterable<Usuarios> listaUsuarios = iusuarios.findAll();
         
